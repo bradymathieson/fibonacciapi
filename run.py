@@ -1,5 +1,5 @@
-from flask import redirect, request, session, url_for
 from app import app
+from flask import session
 from views import *
 
 if __name__ == "__main__":

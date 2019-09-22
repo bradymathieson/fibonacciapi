@@ -1,10 +1,35 @@
-fibs = {0: 0, 1: 1}
+from flask import session
 
+"""
+GetBaseCases()
+
+Requires : none
+Modifies : none
+Effects  : returns the default base cases for the Fibonacci recursion
+"""
+def GetBaseCases():
+    return [0, 1]
+
+"""
+GetFibValue(idx)
+
+Requires : idx is a non-negative integer
+Modifies : session
+Effects  : retrieves a fibonacci value, or calculates one recursively if not already found
+"""
 def GetFibValue(idx):
-    if idx in fibs:
-        print("Base case, returning: idx {} val {}".format(idx, fibs[idx]))
-        return fibs[idx]
 
-    fibs[idx] = GetFibValue(idx-1) + GetFibValue(idx-2)
-    print("fibs[{}] = fibs[{}] + fibs[{}]".format(idx, idx-1, idx-2))
-    return fibs[idx]
+    if "fibs" not in session:
+        session["fibs"] = GetBaseCases()
+
+    # Base case: we already know what this fibonacci value is
+    if idx < len(session["fibs"]):
+        return session["fibs"][idx]
+
+    # Otherwise, recurse!
+    session["fibs"].append(GetFibValue(idx-1) + GetFibValue(idx-2))
+
+    if idx >= len(session["fibs"]):
+        pass
+
+    return session["fibs"][idx]
