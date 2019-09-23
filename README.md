@@ -10,6 +10,11 @@ The Fibonacci sequence is a sequence of numbers, calculated recursively by addin
 
 More information on this sequence can be found [here](https://www.mathsisfun.com/numbers/fibonacci-sequence.html) and [here](https://www.youtube.com/watch?v=SjSHVDfXHQ4).
 
+## Instructions
+
+1. Clone repository to your local machine.
+2. Navigate to the cloned folder and run `python run.py`.
+
 ## Available Endpoints
 |Route|Function|
 |--|--|
