@@ -1,5 +1,5 @@
 # Fibonacci API
-A simple Python Flask application to return individual, sequential values from the Fibonacci sequence using three distinct endpoints. Implemented by [Brady Mathieson](http://github.com/user/bradymathieson).
+A simple Python Flask application to return individual, sequential values from the Fibonacci sequence using three distinct endpoints. Implemented by [Brady Mathieson](http://github.com/bradymathieson).
 
 ## What is the Fibonacci sequence?
 The Fibonacci sequence is a sequence of numbers, calculated recursively by adding the last two values in the sequence. Thus,
