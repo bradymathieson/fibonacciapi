@@ -1,14 +1,4 @@
-from flask import session
-
-"""
-GetBaseCases()
-
-Requires : none
-Modifies : none
-Effects  : returns the default base cases for the Fibonacci recursion
-"""
-def GetBaseCases():
-    return [0, 1]
+from flask import jsonify, session
 
 """
 GetFibValue(idx)
@@ -19,9 +9,6 @@ Effects  : retrieves a fibonacci value, or calculates one recursively if not alr
 """
 def GetFibValue(idx):
 
-    if "fibs" not in session:
-        session["fibs"] = GetBaseCases()
-
     # Base case: we already know what this fibonacci value is
     if idx < len(session["fibs"]):
         return session["fibs"][idx]
@@ -29,7 +16,17 @@ def GetFibValue(idx):
     # Otherwise, recurse!
     session["fibs"].append(GetFibValue(idx-1) + GetFibValue(idx-2))
 
-    if idx >= len(session["fibs"]):
-        pass
-
     return session["fibs"][idx]
+
+"""
+GetJson()
+
+Requires : an initialized session
+Modifies : none
+Effects  : returns the json of the current Fibonacci value
+"""
+def GetJson():
+    return jsonify({
+        "index": session["idx"],
+        "value": GetFibValue(session["idx"])
+    })
